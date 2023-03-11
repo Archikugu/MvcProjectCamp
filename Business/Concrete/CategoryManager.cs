@@ -17,6 +17,10 @@ namespace Business.Concrete {
             _categoryDal = categoryDal;
         }
 
+        public void CategoryAdd(Category category) {
+            _categoryDal.Insert(category);
+        }
+
         public List<Category> GetCategoryList() {
             return _categoryDal.GetList();
         }

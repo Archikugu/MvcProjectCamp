@@ -8,5 +8,6 @@ using System.Threading.Tasks;
 namespace Business.Abstract {
     public interface ICategoryService {
         List<Category> GetCategoryList();
+        void CategoryAdd(Category category);
     }
 }
