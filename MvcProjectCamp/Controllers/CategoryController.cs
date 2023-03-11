@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using Entity.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MvcProjectCamp.Controllers {
@@ -10,6 +11,16 @@ namespace MvcProjectCamp.Controllers {
         public IActionResult GetCategoryList() {
             var categoryValues = manager.GetAll();
             return View(categoryValues);
+        }
+        [HttpGet]
+        public IActionResult AddCategory() {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddCategory(Category category) {
+            manager.Add(category);
+            return RedirectToAction("GetCategoryList");
         }
     }
 }
