@@ -17,6 +17,10 @@ namespace DataAccess.Concrete.Repositories {
             throw new NotImplementedException();
         }
 
+        public Writer GetById(Expression<Func<Writer, bool>> filter) {
+            throw new NotImplementedException();
+        }
+
         public List<Writer> GetList() {
             throw new NotImplementedException();
         }

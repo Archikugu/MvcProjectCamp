@@ -13,5 +13,7 @@ namespace DataAccess.Abstract {
         void Delete(T p);
         List<T> List(Expression<Func<T, bool>> filter);
 
+        T GetById(Expression<Func<T, bool>> filter);
+
     }
 }

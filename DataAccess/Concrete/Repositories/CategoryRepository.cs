@@ -22,6 +22,10 @@ namespace DataAccess.Concrete.Repositories {
             context.SaveChanges();
         }
 
+        public Category GetById(Expression<Func<Category, bool>> filter) {
+            throw new NotImplementedException();
+        }
+
         public List<Category> GetList() {
             throw new NotImplementedException();
         }
