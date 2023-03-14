@@ -37,5 +37,15 @@ namespace MvcProjectCamp.Controllers {
             categoryManager.CategoryDelete(categoryValue);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public IActionResult UpdateCategory(int id) {
+            var categoryValue = categoryManager.GetById(id);
+            return View(categoryValue);
+        }
+        [HttpPost]
+        public IActionResult UpdateCategory(Category category) {
+            categoryManager.CategoryUpdate(category);
+            return RedirectToAction("Index");
+        }
     }
 }
