@@ -18,6 +18,10 @@ namespace DataAccess.Concrete {
             modelBuilder.Entity<Heading>()
                .Navigation(e => e.Writer)
                .AutoInclude();
+            modelBuilder.Entity<Content>()
+               .Navigation(e => e.Writer)
+               .AutoInclude();
+
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 

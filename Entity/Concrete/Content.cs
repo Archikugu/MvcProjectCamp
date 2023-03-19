@@ -5,10 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity.Concrete
-{
-    public class Content
-    {
+namespace Entity.Concrete {
+    public class Content {
         [Key]
         public int ContentId { get; set; }
 
@@ -16,7 +14,7 @@ namespace Entity.Concrete
         public string ContentValue { get; set; }
 
         public DateTime ContentDate { get; set; }
-
+        public bool ContentStatus { get; set; }
         public int HeadingId { get; set; }
         public virtual Heading Heading { get; set; }
 
