@@ -1,0 +1,27 @@
+﻿@model Entity.Concrete.About
+@{
+    ViewData["Title"] = "AddAbout";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni Hakkımda Ekleme Sayfası</h1>
+<br />
+@using (Html.BeginForm("AddAbout", "About", FormMethod.Post)) {
+    <div class="form-group">
+        @Html.Label("Hakkımda Metin 1")
+        @Html.TextBoxFor(x=>x.AboutDetails1,new {@class = "form-control" })
+        <br />
+        @Html.Label("Hakkımda Metin 2")
+        @Html.TextBoxFor(x=>x.AboutDetails2,new {@class = "form-control" })
+        <br />
+        @Html.Label("Hakkımda Görsel 1")
+        @Html.TextBoxFor(x=>x.AboutDetails2,new {@class = "form-control" })
+        <br />
+        @Html.Label("Hakkımda Görsel 2")
+        @Html.TextBoxFor(x=>x.AboutDetails2,new {@class = "form-control" })
+        <br />
+        <button class="btn btn-info">Kaydet</button>
+        <br>
+    </div>
+   
+}
