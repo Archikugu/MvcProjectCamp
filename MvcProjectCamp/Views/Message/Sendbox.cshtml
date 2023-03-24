@@ -1,7 +1,7 @@
 ﻿@using Entity.Concrete
-@model List<Contact>
+@model List<Message>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Sendbox";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -29,7 +29,7 @@
             <div class="col-md-9">
                 <div class="card card-primary card-outline">
                     <div class="card-header">
-                        <h3 class="card-title">Gelen Mesajlar</h3>
+                        <h3 class="card-title">Gönderilen Mesajlar</h3>
                         <div class="card-tools">
                             <div class="input-group input-group-sm">
                                 <input type="text" class="form-control" placeholder="Mail Kutusunda Ara">
@@ -69,7 +69,8 @@
                         <div class="table-responsive mailbox-messages">
                             <table class="table table-hover table-striped">
                                 <tbody>
-                                    @foreach (var item in Model) {
+                                    @foreach (var item in Model)
+                                    {
                                         <tr>
                                             <td>
                                                 <div class="icheck-primary">
@@ -77,10 +78,10 @@
                                                     <label for="check1"></label>
                                                 </div>
                                             </td>
-                                            <td class="mailbox-star"><a href="/Contact/GetContactDetails/@item.ContactId"><i class="fas fa-star text-warning"></i></a></td>
-                                            <td class="mailbox-name"><a href="/Contact/GetContactDetails/@item.ContactId">@item.UserName</a></td>
+                                            <td class="mailbox-star"><a href="/Contact/GetContactDetails/@item.MessageId"><i class="fas fa-star text-warning"></i></a></td>
+                                            <td class="mailbox-name"><a href="/Contact/GetContactDetails/@item.MessageId">@item.ReceiverMail</a></td>
                                             <td class="mailbox-subject">
-                                                <b>@item.Subject</b> - @item.Message.Substring(0,30)
+                                                <b>@item.Subject</b> - @item.MessageContent
                                             </td>
                                             <td class="mailbox-attachment"></td>
                                             <td class="mailbox-date">5 mins ago</td>
@@ -127,4 +128,6 @@
 
 </body>
 </html>
+
+
 
