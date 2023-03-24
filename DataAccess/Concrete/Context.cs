@@ -1,4 +1,5 @@
-﻿using Entity.Concrete;
+﻿using DataAccess.Concrete;
+using Entity.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,10 +8,14 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Concrete {
-    public class Context : DbContext {
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder) {
+namespace DataAccess.Concrete
+
+{
+    public class Context : DbContext
+    {
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             modelBuilder.Entity<Heading>()
                 .Navigation(e => e.Category)
@@ -22,8 +27,10 @@ namespace DataAccess.Concrete {
                .Navigation(e => e.Writer)
                .AutoInclude();
 
+
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
 
             optionsBuilder.UseSqlServer("Server=DESKTOP-4K38GM2; Database = DbMvcProjectCamp; integrated security=true;");
         }
@@ -35,5 +42,6 @@ namespace DataAccess.Concrete {
         public DbSet<Heading> Headings { get; set; }
         public DbSet<Writer> Writers { get; set; }
         public DbSet<Message> Messages { get; set; }
+        public DbSet<Draft> Drafts { get; set; }
     }
 }
